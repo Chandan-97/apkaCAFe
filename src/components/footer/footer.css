@@ -1,0 +1,26 @@
+.Footer-title {
+    padding: 1rem;
+    font-weight: 500;
+    padding-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.Footer-color-red-white {
+    background-color: #e43b3b;
+    color: #f3f0e8;
+}
+
+.Footer-logo-list {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.Footer-logo-list-item {
+}
+
+.Footer-row-list {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+}

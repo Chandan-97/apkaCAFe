@@ -1,0 +1,40 @@
+.Banner-container {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.Banner-title {
+    padding: 1rem;
+    font-weight: 500;
+    padding-bottom: 2rem;
+}
+
+.Banner-color-red-white {
+    background-color: #e43b3b;
+    color: #f3f0e8;
+}
+
+.Banner-color-white-red {
+    background-color: #f3f0e8;
+    color: #e43b3b;
+}
+
+.Banner-list{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: space-around;
+    background-color: #f3f0e8;
+}
+
+.Banner-list-item {
+    font-size: 1.2rem;
+    color: #e43b3b;
+    padding: 0.6rem;
+    background-color: white;
+}
+
+.Banner-center-align {
+    text-align: center;
+}
+
