@@ -1,16 +1,16 @@
 import './header.css'
 import LoginIcon from '@mui/icons-material/Login';
 
-function Header (props) {
+function Header(props) {
     return (
         <div className='Header'>
             <div>
                 <span className='Header-logo'>aapkCA</span>
-                <span className='Header-button right dropdown login-signup'>    
-                    <button class="dropdown">Login / Signup</button>
-                    <div class="dropdown-content">
-                        <a href="#"><LoginIcon fontSize='small'/> CA</a>
-                        <a href="#"><LoginIcon fontSize='small'/> Customer</a>
+                <span className='Header-button right dropdown login-signup'>
+                    <button className="dropdown">Login / Signup</button>
+                    <div className="dropdown-content">
+                        <a href="#"><LoginIcon fontSize='small' /> CA</a>
+                        <a href="#"><LoginIcon fontSize='small' /> Customer</a>
                     </div>
                 </span>
             </div>
@@ -29,6 +29,6 @@ function Header (props) {
             </div>
         </div>
     )
-} 
+}
 
 export default Header;

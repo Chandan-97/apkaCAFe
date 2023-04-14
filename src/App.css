@@ -7,7 +7,7 @@
   text-align: center;
 }
 
-.MT-16{
+.MT-16 {
   margin-top: 1.6rem;
 }
 
@@ -42,6 +42,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
