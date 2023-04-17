@@ -1,13 +1,25 @@
 import './App.css'
-import CADashboard from "./components/cadashboard/cadashboard";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Calogin from "./components/ca_login/Calogin"
+import Customerlogin from "./components/customer_login/CustomerLogin"
 import Home from "./components/home/home";
-// import Home from './components/home/home';
-
-export default function MyApp() {
+import CustomerSignup from './components/customer_login/CustomerSignup';
+import CaSignup from './components/ca_login/CaSignup';
+export default function App() {
   return (
-    <div className="App-Main">
-      {/* <CADashboard /> */}
-      <Home />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}>        
+        </Route>
+        <Route path="/calogin" element={<Calogin />}>        
+        </Route>
+        <Route path="/customerlogin" element={<Customerlogin />}>        
+        </Route>
+        <Route path="/customersignup" element={<CustomerSignup />}>        
+        </Route>
+        <Route path="/casignup" element={<CaSignup/>}>        
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
