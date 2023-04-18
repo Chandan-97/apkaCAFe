@@ -39,3 +39,14 @@ body {
   .emailHelp a {
     color: white;
   }
+
+  .text-danger12 {
+    color: blue;
+    font-size: 24px;
+  }
+
+.inputtile {
+   font-size: 18px;
+   margin-bottom: 0.80%;
+   color: white;
+  }

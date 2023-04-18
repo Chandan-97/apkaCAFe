@@ -2,14 +2,21 @@ import 'semantic-ui-css/semantic.min.css'
 import { Form, Button } from 'semantic-ui-react';
 import { useForm } from "react-hook-form";
 import '../customer_login/customer.css'
+import { useState } from 'react';
 
 function CustomerSignup() {
+  const [passwordShown, setPasswordShown] = useState(false);
 const { register, handleSubmit, formState: { errors } } = useForm();
    
 const onSubmit = (data) => { 
   console.log(data);
 }
 
+const togglePassword = () => {
+  // When the handler is invoked
+  // inverse the boolean state of passwordShown
+  setPasswordShown(!passwordShown);
+};
   return (
     <div>
 <div className="container">
@@ -60,7 +67,7 @@ const onSubmit = (data) => {
              className="form-control"
              type="email"
              placeholder='email'
-             {...register("Email", {required: true, pattern: /^\S+@\S+$/i})}                           
+             {...register("Email", {required: false, pattern: /^\S+@\S+$/i})}                           
             />
              {errors.Email && <p className='text-danger12'>* Please check the email id.</p>}
           </Form.Field>              
@@ -106,13 +113,14 @@ const onSubmit = (data) => {
             <Form.Field>
             <p className='inputtile'>Enter the Password</p>  
               <input
-               type="password"
+               type={passwordShown ? "text" : "password"}
                className="form-control"          
                placeholder="password"
                {...register("password",
               {required: true, max: 12,
               min: 4, maxLength: 12})}                                   
               />
+              <Button onClick={togglePassword} type='button' className="btn btn-color px-5 mt-3 w-50"><i class="fa fa-eye" aria-hidden="true"></i>  Show Password</Button>
               {errors.password && <p className='text-danger12'>* minimum four characters and maximume twelve characters</p>}  
              </Form.Field>               
             </div>
