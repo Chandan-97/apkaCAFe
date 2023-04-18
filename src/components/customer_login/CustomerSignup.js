@@ -1,29 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import 'semantic-ui-css/semantic.min.css'
+import { Form, Button } from 'semantic-ui-react';
+import { useForm } from "react-hook-form";
+import '../customer_login/customer.css'
 
 function CustomerSignup() {
-    const [formData, setFormData] = useState({
-        username: "",
-        moblie:"",
-        email: "",
-        businessNeeds:"",
-        caLocation:"",
-        userLocation:"",
-        password: "",
-        confirm_password: "",
-      });
-
-      console.log(formData)
-
-      const handleInput = (event) => {
-        const name = event.target.name;    
-        const value = event.target.value;
-    
-        setFormData((prev) => {
-          return { ...prev, [name]: value };
-        });
-      };
-      
+const { register, handleSubmit, formState: { errors } } = useForm();
    
+const onSubmit = (data) => { 
+  console.log(data);
+}
 
   return (
     <div>
@@ -33,7 +18,7 @@ function CustomerSignup() {
       
         <div className="card my-5">
 
-          <form className="card-body cardbody-color p-lg-2">
+          <Form className="card-body cardbody-color p-lg-2" autoComplete="off"  onSubmit={handleSubmit(onSubmit)}>
           <h2 className="text-center mt-5 calogin" id="calogin">Customer Signup Panel</h2>
 
             <div className="text-center">
@@ -42,105 +27,97 @@ function CustomerSignup() {
             </div>
 
             <div className="mb-3">
+            <Form.Field>
+              <p className='inputtile'>Enter the Fullname.</p>
               <input
                 className="form-control"
                 type="text"
-                id="Username" 
-                placeholder="Enter Name"
-                value={formData.username}                
-                name="username"            
-                required  
-                onChange={handleInput}
-                />              
+                placeholder='Fullname'              
+                {...register("firstName", { required: true, maxLength: 10, minLength: 3, })}              
+                />
+              {errors.firstName && <p className='text-danger12'>* Please check the Fullname with a minimum of three  characters.</p>}             
+              </Form.Field>   
             </div>
 
             <div className="mb-3">
+            <Form.Field>
+            <p className='inputtile'>Enter the Mobile Number.</p>
               <input
                 className="form-control"
-                type="text"
-                id="moblie"                           
+                type="tel"                                        
                 placeholder="Mobile Number"
-                value={formData.moblie}                
-                name="moblie"  
-                required
-                onChange={handleInput}              
-                />              
+                {...register("mobileNumber",
+                {required: true, minLength: 10, maxLength: 10})}               
+                /> 
+              {errors.mobileNumber && <p className='text-danger12'>* Please check the ten-digit mobile number.</p>}  
+             </Form.Field>                 
             </div>
 
             <div className="mb-3">
+            <Form.Field>
+            <p className='inputtile'>Enter the Email id.</p>
               <input
              className="form-control"
              type="email"
-             id="email"           
-             placeholder="Enter email"
-             value={formData.email}                
-             name="email"  
-             required   
-             onChange={handleInput}               
-                />              
+             placeholder='email'
+             {...register("Email", {required: true, pattern: /^\S+@\S+$/i})}                           
+            />
+             {errors.Email && <p className='text-danger12'>* Please check the email id.</p>}
+          </Form.Field>              
             </div>
 
             <div className="mb-3">
+            <Form.Field>
+            <p className='inputtile'>Enter the Business Needs.</p>
               <input
                 className="form-control"
                 type="text"
-                id="businessNeeds"                 
-                placeholder="Business Needs"
-                value={formData.businessNeeds}                
-                name="businessNeeds"
-                onChange={handleInput}   
-                />              
+                placeholder='Business needs...'
+                {...register("businessNeeds", {required: false,})}                                
+                />             
+            </Form.Field>                
             </div>
 
             <div className="mb-3">
+            <Form.Field>
+            <p className='inputtile'>Enter the CA Location Preference.</p>
               <input
                 className="form-control"
-                type="text"
-                id="Username"             
+                type="text"                          
                 placeholder="CA Location Preference"
-                value={formData.caLocation}                
-                name="caLocation"  
-                onChange={handleInput}               
-                />              
+                {...register("caLocations", {required: false,})}                           
+                /> 
+             </Form.Field>                 
             </div>
 
             <div className="mb-3">
+            <Form.Field>
+            <p className='inputtile'>Enter the Your Location.</p>
               <input
                 className="form-control"
-                type="text" id="userLocation"                
-                placeholder="Your Location" 
-                value={formData.userLocation}                
-                name="userLocation"   
-                onChange={handleInput}            
-                />              
+                type="text"                            
+                placeholder="Your Location"
+                {...register("userLocations", {required: false,})}        
+                />
+            </Form.Field>                
             </div>
-            
+
             <div className="mb-3">
+            <Form.Field>
+            <p className='inputtile'>Enter the Password</p>  
               <input
                type="password"
-               className="form-control"
-               id="password"
+               className="form-control"          
                placeholder="password"
-               value={formData.password}                
-               name="password" 
-               onChange={handleInput}
-              required/>              
+               {...register("password",
+              {required: true, max: 12,
+              min: 4, maxLength: 12})}                                   
+              />
+              {errors.password && <p className='text-danger12'>* minimum four characters and maximume twelve characters</p>}  
+             </Form.Field>               
             </div>
-
-            <div className="mb-3">
-              <input type="password"
-               className="form-control"
-              id="confirm_password"
-               placeholder="Confirm password"
-               value={formData.confirm_password}                
-               name="confirm_password" 
-               onChange={handleInput}
-                         
-              required/>              
-            </div>
-            <div className="text-center"><button type="submit" className="btn btn-color px-5 mb-5 w-100"  onChange={handleInput}>Submit</button></div>
-            
-          </form>
+            <div className="text-center"><Button type="submit" className="btn btn-color px-5 mb-5 w-100"  >Submit</Button></div>            
+          </Form>
         </div>
 
       </div>
