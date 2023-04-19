@@ -40,7 +40,7 @@ const togglePassword = () => {
                 className="form-control"
                 type="text"
                 placeholder='Fullname'              
-                {...register("firstName", { required: true, maxLength: 10, minLength: 3, })}              
+                {...register("firstName", { required: true, maxLength: 60, minLength: 3, })}              
                 />
               {errors.firstName && <p className='text-danger12'>* Please check the Fullname with a minimum of three  characters.</p>}             
               </Form.Field>   

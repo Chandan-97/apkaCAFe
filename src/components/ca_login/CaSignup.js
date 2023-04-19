@@ -41,7 +41,7 @@ function CaSignup() {
               className="form-control"
               type="text"
               placeholder='Fullname'
-            {...register("firstName", { required: true, maxLength: 10, minLength: 3, })}                                       
+            {...register("firstName", { required: true, maxLength: 60, minLength: 3, })}                                       
                 />
             {errors.firstName && <p className='text-danger12'>* Please check the Fullname with a minimum of three  characters.</p>}    
             </Form.Field>                  
@@ -121,7 +121,7 @@ function CaSignup() {
                 className="form-control"
                 type="tel"                 
                 placeholder="Years of Experience"
-                {...register("yearOfExperience", {required: true, minLength: 6, maxLength: 6})}
+                {...register("yearOfExperience", {required: true, minLength: 0})}
                 />                
               {errors.yearOfExperience && <p className='text-danger12'>* Enter the correct number.</p>}       
             </Form.Field>                 
@@ -158,26 +158,37 @@ function CaSignup() {
             <div className="mb-3">
             <Form.Field>
             <p className='inputtile'>Enter the business services</p> 
-              <input  className="form-control" type="text" id="Username" aria-describedby="emailHelp"
-                placeholder="Business Services"               
+              <input
+                className="form-control"
+                type="text"              
+                placeholder="Business Services"
+                {...register("businessServices", {required: true})}                 
                 />
+                {errors.businessServices && <p className='text-danger12'>* Please fill the correct business services.</p>}        
               </Form.Field>                  
             </div>  
 
              <div className="mb-3">
              <Form.Field>
              <p className='inputtile'>Enter the CA passed Years</p> 
-              <input  className="form-control" type="text"  id="Username" aria-describedby="emailHelp"
+              <input
+                className="form-control"
+                type="tel"
+                {...register("caPassedYears", {required: true, minLength: 0 })}                   
                 placeholder="CA Passed Year"               
                 />
+                {errors.caPassedYears && <p className='text-danger12'>* Please fill the correct CA passed years.</p>}        
               </Form.Field>                
             </div>     
 
             <div className="mb-3">
             <Form.Field>
             <p className='inputtile'>Enter the Worked with company</p> 
-              <input  className="form-control" type="text"  id="Username" aria-describedby="emailHelp"
-                placeholder="Worked With companies"               
+              <input
+               className="form-control"
+               type="text"             
+               placeholder="Worked With companies"
+               {...register("caPassedYears", {required: false})}       
                 />      
             </Form.Field>            
             </div>  
@@ -185,8 +196,11 @@ function CaSignup() {
             <div className='mb-3'>
             <Form.Field>
             <p className='inputtile'>Enter the working year</p> 
-            <input  className="form-control mb-3" type="number" min="1"  id="Username" aria-describedby="emailHelp"
-                placeholder="Working Years"               
+            <input
+            className="form-control mb-3"
+            type="tel"          
+            placeholder="Working Years"       
+            {...register("workingYears", {required: false})}          
                 />
             </Form.Field>                   
             </div>
@@ -194,8 +208,11 @@ function CaSignup() {
             <div className='mb-3'>
             <Form.Field>
             <p className='inputtile'>upload Awards / Certifications</p>             
-            <input  className="form-control mb-3" type="file" min="1"  id="Username" aria-describedby="emailHelp"
-                placeholder="Awards / Certifications"               
+            <input
+            className="form-control mb-3"
+            type="file"              
+            placeholder="Awards / Certifications"
+            {...register("uploadAwards", {required: false})}                  
                 />
             </Form.Field>                   
             </div>           
@@ -203,19 +220,31 @@ function CaSignup() {
             <div className="mb-3">
             <Form.Field>
             <p className='inputtile'>upload passport size image.</p>          
-              <input type="file" className="form-control" id="password" placeholder="password"           
+              <input type="file"
+              className="form-control"
+            {...register("uploadPhoto", {required: true})}  
+              placeholder="upload passport size image."           
               required/>
+            {errors.uploadPhoto && <p className='text-danger12'>* Please upload the passport size photo.</p>}        
             </Form.Field>                
             </div>
 
             <div className="mb-3">
             <Form.Field>
-            <p className='inputtile'>Enter the password</p>          
-              <input type="password" className="form-control" id="password" placeholder="Confirm password"           
-              required/>              
-            </Form.Field>
+            <p className='inputtile'>Enter the Password</p>  
+              <input
+               type={passwordShown ? "text" : "password"}
+               className="form-control"          
+               placeholder="password"
+               {...register("password",
+              {required: true, max: 12,
+              min: 4, maxLength: 12})}                                   
+              />
+              <Button onClick={togglePassword} type='button' className="btn btn-color px-5 mt-3 w-50"><i class="fa fa-eye" aria-hidden="true"></i>  Show Password</Button>
+              {errors.password && <p className='text-danger12'>* minimum four characters and maximume twelve characters</p>}  
+             </Form.Field>
             </div>
-            <div className="text-center"><Button type="submit" className="btn btn-color px-5 mb-5 w-100">Submit</Button></div>
+            <div className="text-center"><Button type="submit" className="btn btn-color px-5 mb-5 w-100"  >Submit</Button></div>            
             
           </Form>
         </div>
