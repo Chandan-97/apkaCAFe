@@ -26,7 +26,7 @@ function CaSignup() {
       
         <div className="card my-5">
 
-          <Form className="card-body cardbody-color p-lg-2" onSubmit={handleSubmit(onSubmit)} >
+          <Form className="card-body cardbody-color p-lg-2" onSubmit={handleSubmit(onSubmit)} autoComplete="off" >
           <h2 className="text-center mt-5 calogin" id="calogin">CA Signup Panel</h2>
 
             <div className="text-center">
