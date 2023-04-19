@@ -25,7 +25,7 @@ const togglePassword = () => {
       
         <div className="card my-5">
 
-          <Form className="card-body cardbody-color p-lg-2" autoComplete="off"  onSubmit={handleSubmit(onSubmit)}>
+          <Form className="card-body cardbody-color p-lg-2" autoComplete="off"  onSubmit={handleSubmit(onSubmit)} >
           <h2 className="text-center mt-5 calogin" id="calogin">Customer Signup Panel</h2>
 
             <div className="text-center">

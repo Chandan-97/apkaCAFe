@@ -13,9 +13,7 @@ function CaSignup() {
     console.log(data);
   }
   
-  const togglePassword = () => {
-    // When the handler is invoked
-    // inverse the boolean state of passwordShown
+  const togglePassword = () => {   
     setPasswordShown(!passwordShown);
   };
   return (
