@@ -5,19 +5,52 @@ import '../customer_login/customer.css'
 import { useState } from 'react';
 import Header from '../header/header';
 import Banner from '../banner/banner';
+import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function CustomerSignup() {
   const [passwordShown, setPasswordShown] = useState(false);
+  const [conPasswordShown, conSetPasswordShown] = useState(false);
 const { register, handleSubmit, formState: { errors } } = useForm();
    
 const onSubmit = (data) => { 
-  console.log(data);
+
+  try {
+    console.log(data);
+    console.log("Email 16 line",data.Email);
+
+    if(data.password === data.confirmPassword){
+      axios.post('http://13.235.13.82:8000//accounts/user/register',{      
+        full_name:data.firstName,
+        phone_no:data.mobileNumber,
+        email:data.Email,
+        business_need:data.businessNeeds,
+        location:data.userLocations,
+        password1:data.password,  
+        password2: data.confirmPassword  
+      }).then((response)=>{
+        console.log("response28",response);
+        console.log("respone status",response.status)
+      })      
+    } 
+    else {
+      toast("password and confirm password not match.")
+    }
+
+ 
+  } catch (e) {
+    console.log(e)
+  }
+
 }
 
-const togglePassword = () => {
-  // When the handler is invoked
-  // inverse the boolean state of passwordShown
+const togglePassword = () => { 
   setPasswordShown(!passwordShown);
+};
+
+const conTogglePassword = () => { 
+  conSetPasswordShown(!conPasswordShown);
 };
   return (
     <div>
@@ -125,6 +158,34 @@ const togglePassword = () => {
               min: 4, maxLength: 12})}                                   
               />
               <Button onClick={togglePassword} type='button' className="btn btn-color px-5 mt-3 w-50"><i class="fa fa-eye" aria-hidden="true"></i>  Show Password</Button>
+              {errors.password && <p className='text-danger12'>* minimum four characters and maximume twelve characters</p>}  
+             </Form.Field>               
+            </div>
+
+            <div className="mb-3">
+            <Form.Field>
+            <p className='inputtile'>Enter the confirm Password</p>  
+              <input
+               type={conPasswordShown ? "text" : "password"}
+               className="form-control"          
+               placeholder="confirm password"
+               {...register("confirmPassword",
+              {required: true, max: 12,
+              min: 4, maxLength: 12})}                                   
+              />
+              <ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"              
+              />
+              <Button onClick={conTogglePassword} type='button' className="btn btn-color px-5 mt-3 w-50"><i class="fa fa-eye" aria-hidden="true"></i>  Show Password</Button>
               {errors.password && <p className='text-danger12'>* minimum four characters and maximume twelve characters</p>}  
              </Form.Field>               
             </div>
