@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { useState } from 'react';
 import '../ca_login/login.css'
 import Header from '../header/header';
+import Banner from '../banner/banner';
 
 function CaSignup() {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -20,6 +21,7 @@ function CaSignup() {
   return (
     <div>
        <Header/>
+       <Banner/>
 <div className="container">
     <div className="row">
       <div className="col-md-6 offset-md-3">

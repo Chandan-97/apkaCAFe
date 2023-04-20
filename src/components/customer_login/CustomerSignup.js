@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import '../customer_login/customer.css'
 import { useState } from 'react';
 import Header from '../header/header';
+import Banner from '../banner/banner';
 
 function CustomerSignup() {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -21,6 +22,7 @@ const togglePassword = () => {
   return (
     <div>
     <Header/>
+    <Banner/>
 <div className="container">
     <div className="row">
       <div className="col-md-6 offset-md-3">
