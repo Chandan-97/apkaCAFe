@@ -2,7 +2,7 @@ import 'semantic-ui-css/semantic.min.css'
 import { Form, Button } from 'semantic-ui-react';
 import { useForm } from "react-hook-form";
 import '../customer_login/customer.css'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import Header from '../header/header';
 import Banner from '../banner/banner';
 import axios from 'axios'
@@ -12,6 +12,14 @@ import 'react-toastify/dist/ReactToastify.css';
 function CustomerSignup() {
   const [passwordShown, setPasswordShown] = useState(false);
   const [conPasswordShown, conSetPasswordShown] = useState(false);
+  const [values,setValues]=useState([])
+
+
+useEffect(()=>{
+    fetch("https://jsonplaceholder.typicode.com/posts").then((data)=>data.json()).then((val)=>setValues(val))
+},[])
+
+
 const { register, handleSubmit, formState: { errors } } = useForm();
    
 const onSubmit = (data) => { 
@@ -122,7 +130,7 @@ const conTogglePassword = () => {
             </Form.Field>                
             </div>
 
-            <div className="mb-3">
+            {/* <div className="mb-3">
             <Form.Field>
             <p className='inputtile'>Enter the CA Location Preference.</p>
               <input
@@ -131,6 +139,17 @@ const conTogglePassword = () => {
                 placeholder="CA Location Preference"
                 {...register("caLocations", {required: false,})}                           
                 /> 
+             </Form.Field>                 
+            </div> */}
+
+            <div className="mb-3">
+            <Form.Field>
+            <p className='inputtile'>Enter the CA Location Preference.</p>
+            <select {...register("caLocations", {required: false,})}  className="form-control">
+                {
+                    values.map((opts,i)=><option key={i}>{opts.title}</option>)
+                }
+            </select>
              </Form.Field>                 
             </div>
 
