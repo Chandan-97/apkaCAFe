@@ -3,6 +3,7 @@ import { Form, Button } from 'semantic-ui-react';
 import { useForm } from "react-hook-form";
 import '../customer_login/customer.css'
 import { useState } from 'react';
+import Header from '../header/header';
 
 function CustomerSignup() {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -19,6 +20,7 @@ const togglePassword = () => {
 };
   return (
     <div>
+    <Header/>
 <div className="container">
     <div className="row">
       <div className="col-md-6 offset-md-3">

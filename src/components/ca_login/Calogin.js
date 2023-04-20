@@ -1,12 +1,14 @@
 import React from 'react'
 import {Link } from "react-router-dom";
 import '../ca_login/login.css'
+import Header from '../header/header';
 
 
 
 export default function calogin() {
   return (
     <div> 
+      <Header/>
 <div className="container">
     <div className="row">
       <div className="col-md-6 offset-md-3">

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {Link } from "react-router-dom";
 import '../customer_login/customer.css'
+import Header from '../header/header';
 
 export default function Customerlogin() {
   const [email,setEmail]= useState();
@@ -12,6 +13,7 @@ export default function Customerlogin() {
   } 
   return (
     <div>
+          <Header/>
 <div className="container">
     <div className="row">
       <div className="col-md-6 offset-md-3">
