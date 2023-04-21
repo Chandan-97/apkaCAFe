@@ -23,7 +23,7 @@ const onSubmit = (data) => {
     console.log("Email 16 line",data.Email);
 
     if(data.password === data.confirmPassword){
-   let res = axios.post('http://13.235.13.82:8000//accounts/user/register',
+   let res = axios.post('http://13.235.13.82:8000/accounts/user/register',
       {      
         full_name:data.firstName,
         phone_no:data.mobileNumber,
