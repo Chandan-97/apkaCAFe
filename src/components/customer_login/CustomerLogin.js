@@ -3,14 +3,17 @@ import {Link } from "react-router-dom";
 import '../customer_login/customer.css'
 import Header from '../header/header';
 import Banner from '../banner/banner';
+import AuthUser from '../authUser/AuthUser';
 
 export default function Customerlogin() {
   const [email,setEmail]= useState();
   const [password,setPassword] = useState();
+  const {http,setToken} = AuthUser();
 
   const submitForm = (e)=>{
-   console.log(email)
-   console.log(password);
+    http.post('http://localhost:3000/api/v1/login',{email:email,password:password}).then((res)=>{
+      setToken(res.data.user,res.data.access_token);
+  })
   } 
   return (
     <div>

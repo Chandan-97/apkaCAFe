@@ -12,13 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function CustomerSignup() {
   const [passwordShown, setPasswordShown] = useState(false);
   const [conPasswordShown, conSetPasswordShown] = useState(false);
-  const [values,setValues]=useState([])
-
-
-useEffect(()=>{
-    fetch("https://jsonplaceholder.typicode.com/posts").then((data)=>data.json()).then((val)=>setValues(val))
-},[])
-
+  const [values,setValues]=useState([]) 
 
 const { register, handleSubmit, formState: { errors } } = useForm();
    
@@ -29,7 +23,8 @@ const onSubmit = (data) => {
     console.log("Email 16 line",data.Email);
 
     if(data.password === data.confirmPassword){
-      axios.post('http://13.235.13.82:8000//accounts/user/register',{      
+   let res = axios.post('http://13.235.13.82:8000//accounts/user/register',
+      {      
         full_name:data.firstName,
         phone_no:data.mobileNumber,
         email:data.Email,
@@ -38,8 +33,9 @@ const onSubmit = (data) => {
         password1:data.password,  
         password2: data.confirmPassword  
       }).then((response)=>{
-        console.log("response28",response);
-        console.log("respone status",response.status)
+        console.log("response28",res);
+        console.log("respone status",res.status)
+        toast("customer account created successfully")
       })      
     } 
     else {
@@ -52,6 +48,11 @@ const onSubmit = (data) => {
   }
 
 }
+
+useEffect(()=>{
+  fetch("https://jsonplaceholder.typicode.com/posts").then((data)=>data.json()).then((val)=>setValues(val))
+},[])
+
 
 const togglePassword = () => { 
   setPasswordShown(!passwordShown);
@@ -128,19 +129,7 @@ const conTogglePassword = () => {
                 {...register("businessNeeds", {required: false,})}                                
                 />             
             </Form.Field>                
-            </div>
-
-            {/* <div className="mb-3">
-            <Form.Field>
-            <p className='inputtile'>Enter the CA Location Preference.</p>
-              <input
-                className="form-control"
-                type="text"                          
-                placeholder="CA Location Preference"
-                {...register("caLocations", {required: false,})}                           
-                /> 
-             </Form.Field>                 
-            </div> */}
+            </div>           
 
             <div className="mb-3">
             <Form.Field>
@@ -156,12 +145,11 @@ const conTogglePassword = () => {
             <div className="mb-3">
             <Form.Field>
             <p className='inputtile'>Enter the Your Location.</p>
-              <input
-                className="form-control"
-                type="text"                            
-                placeholder="Your Location"
-                {...register("userLocations", {required: false,})}        
-                />
+            <select {...register("useLocations", {required: false,})}  className="form-control">
+                {
+                    values.map((opts,i)=><option key={i}>{opts.title}</option>)
+                }
+            </select>
             </Form.Field>                
             </div>
 
