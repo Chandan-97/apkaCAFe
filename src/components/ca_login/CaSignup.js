@@ -3,20 +3,61 @@ import 'semantic-ui-css/semantic.min.css'
 import { Form, Button } from 'semantic-ui-react';
 import { useForm } from "react-hook-form";
 import { useState } from 'react';
+import axios from 'axios'
 import '../ca_login/login.css'
 import Header from '../header/header';
 import Banner from '../banner/banner';
+import { ToastContainer, toast } from 'react-toastify';
 
 function CaSignup() {
   const [passwordShown, setPasswordShown] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const [conPasswordShown, conSetPasswordShown] = useState(false);
    
   const onSubmit = (data) => { 
+    
+  try {
     console.log(data);
+    console.log("Email 16 line",data.Email);
+
+    if(data.password === data.confirmPassword){
+   let res = axios.post('http://13.235.13.82:8000/accounts/ca/register',
+      {      
+        full_name: data.firstName,
+        phone_no: data.mobileNumber,
+        email: data.Email,
+        location: data.locations,
+        office_address: data.officeAddress,
+        years_of_experience: data.yearOfExperience,
+        degrees: data.degreeUpload,
+        summary: data.profileSummary,
+        passout_year:data.caPassedYears,
+        password1:data.password,  
+        password2: data.confirmPassword 
+      }).then((response)=>{
+        console.log("response28",res);
+        console.log("respone status",res.status)
+        toast("customer account created successfully")
+      })      
+    } 
+    else {
+      toast("password and confirm password not match.")
+    }
+
+ 
+  } catch (e) {
+    console.log(e)
+  }
+
+    
   }
   
   const togglePassword = () => {   
     setPasswordShown(!passwordShown);
+  };
+
+  const conTogglePassword = () => { 
+    conSetPasswordShown(!conPasswordShown);
   };
   return (
     <div>
@@ -245,6 +286,34 @@ function CaSignup() {
               <Button onClick={togglePassword} type='button' className="btn btn-color px-5 mt-3 w-50"><i class="fa fa-eye" aria-hidden="true"></i>  Show Password</Button>
               {errors.password && <p className='text-danger12'>* minimum four characters and maximume twelve characters</p>}  
              </Form.Field>
+            </div>
+
+            <div className="mb-3">
+            <Form.Field>
+            <p className='inputtile'>Enter the confirm Password</p>  
+              <input
+               type={conPasswordShown ? "text" : "password"}
+               className="form-control"          
+               placeholder="confirm password"
+               {...register("confirmPassword",
+              {required: true, max: 12,
+              min: 4, maxLength: 12})}                                   
+              />
+              <ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"              
+              />
+              <Button onClick={conTogglePassword} type='button' className="btn btn-color px-5 mt-3 w-50"><i class="fa fa-eye" aria-hidden="true"></i>  Show Password</Button>
+              {errors.password && <p className='text-danger12'>* minimum four characters and maximume twelve characters</p>}  
+             </Form.Field>               
             </div>
             <div className="text-center"><Button type="submit" className="btn btn-color px-5 mb-5 w-100"  >Submit</Button></div>            
             
