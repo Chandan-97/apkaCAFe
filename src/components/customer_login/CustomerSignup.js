@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import '../customer_login/customer.css'
 import { useState,useEffect } from 'react';
 import Header from '../header/header';
-import Banner from '../banner/banner';
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -63,8 +62,7 @@ const conTogglePassword = () => {
 };
   return (
     <div>
-    <Header/>
-    <Banner/>
+    <Header/>   
 <div className="container">
     <div className="row">
       <div className="col-md-6 offset-md-3">

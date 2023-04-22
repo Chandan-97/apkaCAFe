@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import {Link } from "react-router-dom";
 import '../customer_login/customer.css'
 import Header from '../header/header';
-import Banner from '../banner/banner';
 import AuthUser from '../authUser/AuthUser';
 
 export default function Customerlogin() {
@@ -17,8 +16,7 @@ export default function Customerlogin() {
   } 
   return (
     <div>
-          <Header/>
-          <Banner/>          
+          <Header/>           
 <div className="container">
     <div className="row">
       <div className="col-md-6 offset-md-3">
