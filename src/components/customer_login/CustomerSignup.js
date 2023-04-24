@@ -7,22 +7,20 @@ import Header from '../header/header';
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router";
 
 function CustomerSignup() {
   const [passwordShown, setPasswordShown] = useState(false);
   const [conPasswordShown, conSetPasswordShown] = useState(false);
   const [values,setValues]=useState([]) 
+  const history = useNavigate();
 
 const { register, handleSubmit, formState: { errors } } = useForm();
    
-const onSubmit = (data) => { 
-
-  try {
-    console.log(data);
-    console.log("Email 16 line",data.Email);
-
+const onSubmit = (data) => {
+  try { 
     if(data.password === data.confirmPassword){
-   let res = axios.post('http://13.235.13.82:8000/accounts/user/register',
+    axios.post('http://13.234.30.172:8000/accounts/user/register',
       {      
         full_name:data.firstName,
         phone_no:data.mobileNumber,
@@ -31,25 +29,24 @@ const onSubmit = (data) => {
         location:data.userLocations,
         password1:data.password,  
         password2: data.confirmPassword  
-      }).then((response)=>{
-        console.log("response28",res);
-        console.log("respone status",res.status)
-        toast("customer account created successfully")
+      }).then((status)=>{        
+        alert("customer account created successfully")
+        history("/");
+        console.log(status.status)
       })      
     } 
     else {
       toast("password and confirm password not match.")
     }
-
  
   } catch (e) {
     console.log(e)
+    toast("Your account not created.")
   }
-
 }
 
 useEffect(()=>{
-  fetch("https://jsonplaceholder.typicode.com/posts").then((data)=>data.json()).then((val)=>setValues(val))
+  fetch("http://13.234.30.172:8000/location/list").then((data)=>data.json()).then((val)=>setValues(val))
 },[])
 
 
@@ -63,6 +60,7 @@ const conTogglePassword = () => {
   return (
     <div>
     <Header/>   
+    <ToastContainer />
 <div className="container">
     <div className="row">
       <div className="col-md-6 offset-md-3">
@@ -134,7 +132,7 @@ const conTogglePassword = () => {
             <p className='inputtile'>Enter the CA Location Preference.</p>
             <select {...register("caLocations", {required: false,})}  className="form-control">
                 {
-                    values.map((opts,i)=><option key={i}>{opts.title}</option>)
+                    values.map((opts,i)=><option key={i}>{opts[0]}</option>)
                 }
             </select>
              </Form.Field>                 
@@ -145,7 +143,7 @@ const conTogglePassword = () => {
             <p className='inputtile'>Enter the Your Location.</p>
             <select {...register("useLocations", {required: false,})}  className="form-control">
                 {
-                    values.map((opts,i)=><option key={i}>{opts.title}</option>)
+                    values.map((opts,i)=><option key={i}>{opts[1]}</option>)
                 }
             </select>
             </Form.Field>                
@@ -195,13 +193,13 @@ const conTogglePassword = () => {
              </Form.Field>               
             </div>
             <div className="text-center"><Button type="submit" className="btn btn-color px-5 mb-5 w-100"  >Submit</Button></div>            
-          </Form>
+          </Form>          
         </div>
 
       </div>
     </div>
   </div>
-    </div>
+</div>
 
   )
 }
