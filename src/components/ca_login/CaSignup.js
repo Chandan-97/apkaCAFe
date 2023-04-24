@@ -2,17 +2,21 @@ import React from 'react'
 import 'semantic-ui-css/semantic.min.css'
 import { Form, Button } from 'semantic-ui-react';
 import { useForm } from "react-hook-form";
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import axios from 'axios'
 import '../ca_login/login.css'
 import Header from '../header/header';
 import Banner from '../banner/banner';
 import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from "react-router";
+
 
 function CaSignup() {
   const [passwordShown, setPasswordShown] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [conPasswordShown, conSetPasswordShown] = useState(false);
+  const [values,setValues]=useState([]) 
+  const history = useNavigate();
    
   const onSubmit = (data) => { 
     
@@ -21,7 +25,7 @@ function CaSignup() {
     console.log("Email 16 line",data.Email);
 
     if(data.password === data.confirmPassword){
-   let res = axios.post('http://13.235.13.82:8000/accounts/ca/register',
+    axios.post('http://13.234.30.172:8000/accounts/ca/register',
       {      
         full_name: data.firstName,
         phone_no: data.mobileNumber,
@@ -35,16 +39,15 @@ function CaSignup() {
         password1:data.password,  
         password2: data.confirmPassword 
       }).then((response)=>{
-        console.log("response28",res);
-        console.log("respone status",res.status)
-        toast("customer account created successfully")
+        alert("customer account created successfully")
+        console.log("response28",response);
+        console.log("respone status",response.status)
+        history("/calogin");
       })      
     } 
     else {
       toast("password and confirm password not match.")
-    }
-
- 
+    } 
   } catch (e) {
     console.log(e)
   }
@@ -59,6 +62,10 @@ function CaSignup() {
   const conTogglePassword = () => { 
     conSetPasswordShown(!conPasswordShown);
   };
+
+  useEffect(()=>{
+    fetch("http://13.234.30.172:8000/location/list").then((data)=>data.json()).then((val)=>setValues(val))
+  },[])
   return (
     <div>
        <Header/>
@@ -76,7 +83,18 @@ function CaSignup() {
               <img src="https://www.w3schools.com/howto/img_avatar.png" className="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
                 width="200px" alt="profile"/>
             </div>
-
+            <ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"              
+              />
             <div className="mb-3">
             <Form.Field>
             <p className='inputtile'>Enter the Fullname.</p>
@@ -117,7 +135,7 @@ function CaSignup() {
             </Form.Field>                
             </div>
 
-            <div className="mb-3">
+            {/* <div className="mb-3">
             <Form.Field>
             <p className='inputtile'>Enter The Six Digit Membership Number</p>
               <input
@@ -130,17 +148,16 @@ function CaSignup() {
                 />
               {errors.sixDigitMemebership && <p className='text-danger12'>* Please check the six Digit membership number.</p>}  
               </Form.Field>                
-            </div>
+            </div> */}
 
             <div className="mb-3">
             <Form.Field>
             <p className='inputtile'>Enter the Location Preference.</p>
-              <input
-                className="form-control"
-                type="type"                           
-                placeholder="Enter location"
-                {...register("locations", {required: true,})}              
-                />
+            <select {...register("locations", {required: false,})}  className="form-control">
+                {
+                    values.map((opts,i)=><option key={i}>{opts[1]}</option>)
+                }
+            </select>
             {errors.locations && <p className='text-danger12'>* Enter the correct location.</p>}       
             </Form.Field>                
             </div>
@@ -198,7 +215,7 @@ function CaSignup() {
             </Form.Field>              
             </div>
 
-            <div className="mb-3">
+            {/* <div className="mb-3">
             <Form.Field>
             <p className='inputtile'>Enter the business services</p> 
               <input
@@ -209,7 +226,7 @@ function CaSignup() {
                 />
                 {errors.businessServices && <p className='text-danger12'>* Please fill the correct business services.</p>}        
               </Form.Field>                  
-            </div>  
+            </div>   */}
 
              <div className="mb-3">
              <Form.Field>
@@ -224,7 +241,7 @@ function CaSignup() {
               </Form.Field>                
             </div>     
 
-            <div className="mb-3">
+            {/* <div className="mb-3">
             <Form.Field>
             <p className='inputtile'>Enter the Worked with company</p> 
               <input
@@ -234,7 +251,7 @@ function CaSignup() {
                {...register("caPassedYears", {required: false})}       
                 />      
             </Form.Field>            
-            </div>  
+            </div>   */}
 
             <div className='mb-3'>
             <Form.Field>
@@ -248,7 +265,7 @@ function CaSignup() {
             </Form.Field>                   
             </div>
 
-            <div className='mb-3'>
+            {/* <div className='mb-3'>
             <Form.Field>
             <p className='inputtile'>upload Awards / Certifications</p>             
             <input
@@ -258,9 +275,9 @@ function CaSignup() {
             {...register("uploadAwards", {required: false})}                  
                 />
             </Form.Field>                   
-            </div>           
+            </div>            */}
 
-            <div className="mb-3">
+            {/* <div className="mb-3">
             <Form.Field>
             <p className='inputtile'>upload passport size image.</p>          
               <input type="file"
@@ -270,7 +287,7 @@ function CaSignup() {
               required/>
             {errors.uploadPhoto && <p className='text-danger12'>* Please upload the passport size photo.</p>}        
             </Form.Field>                
-            </div>
+            </div> */}
 
             <div className="mb-3">
             <Form.Field>

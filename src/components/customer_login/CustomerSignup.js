@@ -31,7 +31,7 @@ const onSubmit = (data) => {
         password2: data.confirmPassword  
       }).then((status)=>{        
         alert("customer account created successfully")
-        history("/");
+        history("/customerlogin");
         console.log(status.status)
       })      
     } 

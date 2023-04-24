@@ -1,18 +1,36 @@
-import React, { useState } from 'react'
 import {Link } from "react-router-dom";
 import '../customer_login/customer.css'
 import Header from '../header/header';
-import AuthUser from '../authUser/AuthUser';
+import axios from 'axios';
+import { useForm } from "react-hook-form";
+// import AuthUser from '../authUser/AuthUser';
+import { useNavigate } from "react-router";
 
-export default function Customerlogin() {
-  const [email,setEmail]= useState();
-  const [password,setPassword] = useState();
-  const {http,setToken} = AuthUser();
+export default function Customerlogin() { 
+  // const {http,setToken} = AuthUser();
 
-  const submitForm = (e)=>{
-    http.post('http://localhost:3000/api/v1/login',{email:email,password:password}).then((res)=>{
-      setToken(res.data.user,res.data.access_token);
-  })
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const history = useNavigate();
+
+  const onSubmit = (data)=>{
+    try { 
+     
+      axios.post('http://13.234.30.172:8000/accounts/user/login',
+        {      
+          email:data.Email,
+          password:data.password
+        }).then((status)=>{       
+          alert("login successfully")     
+          console.log(status.status)
+          history("/");
+        })      
+      } 
+      
+   
+     catch (e) {
+      console.log(e)
+      alert("Your account not created.")
+    }
   } 
   return (
     <div>
@@ -23,7 +41,7 @@ export default function Customerlogin() {
       
         <div className="card my-5">
 
-          <form className="card-body cardbody-color p-lg-2" onSubmit={submitForm()}>
+          <form className="card-body cardbody-color p-lg-2" onSubmit={handleSubmit(onSubmit)}>
           <h2 className="text-center mt-5 calogin" id="calogin">Customer Login Panel</h2>
 
             <div className="text-center">
@@ -33,14 +51,18 @@ export default function Customerlogin() {
 
             <div className="mb-3">
               <input  className="form-control" id="Username" aria-describedby="emailHelp"
-                placeholder="email/mobile" required
-                onChange={e=>setEmail(e.target.value)}
+                placeholder="email/mobile" 
+                {...register("Email", {required: true, pattern: /^\S+@\S+$/i})} 
                 />
+                  {errors.Email && <p className='text-danger12'>* Please check the email id.</p>}
+
             </div>
             <div className="mb-3">
               <input type="password" className="form-control" id="password" placeholder="password"
-               onChange={e=>setPassword(e.target.value)}
-              required/>
+             {...register("password",
+             {required: true})}  
+              />
+               {errors.password && <p className='text-danger12'>* password required</p>}               
             </div>
             <div className="text-center"><button type="submit" className="btn btn-color px-5 mb-5 w-100">Login</button></div>
             <div  className="form-text text-center mb-5 emailHelp">Not
