@@ -1,5 +1,6 @@
 import './header.css'
 import LoginIcon from '@mui/icons-material/Login';
+import {Link } from "react-router-dom";
 
 function Header(props) {
     return (
@@ -9,8 +10,8 @@ function Header(props) {
                 <span className='Header-button right dropdown login-signup'>
                     <button className="dropdown">Login / Signup</button>
                     <div className="dropdown-content">
-                        <a href="#"><LoginIcon fontSize='small' /> CA</a>
-                        <a href="#"><LoginIcon fontSize='small' /> Customer</a>
+                   <Link to="/calogin"><LoginIcon fontSize='small' />CA</Link>
+                   <Link to="/customerlogin"><LoginIcon fontSize='small' />Customer</Link>                       
                     </div>
                 </span>
             </div>
@@ -32,3 +33,4 @@ function Header(props) {
 }
 
 export default Header;
+
