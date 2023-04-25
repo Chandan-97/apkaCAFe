@@ -13,8 +13,7 @@ export default function Calogin() {
   const history = useNavigate();
 
   const onSubmit = (data)=>{
-    try { 
-     
+    try {    
       axios.post(caLoginApi,
         {      
           email:data.Email,
@@ -24,12 +23,9 @@ export default function Calogin() {
           console.log(status.status)
           history("/");
         })      
-      } 
-      
-   
-     catch (e) {
+      }     
+     catch (e) {      
       console.log(e)
-      alert("Your account not created.")
     }
   } 
   return (
