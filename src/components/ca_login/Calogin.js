@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useForm } from "react-hook-form";
 // import AuthUser from '../authUser/AuthUser';
 import { useNavigate } from "react-router";
-
+import { caLoginApi } from '../components/ApiRouter.js';
 export default function Calogin() { 
   // const {http,setToken} = AuthUser();
 
@@ -15,7 +15,7 @@ export default function Calogin() {
   const onSubmit = (data)=>{
     try { 
      
-      axios.post('http://13.234.30.172:8000/accounts/ca/login',
+      axios.post(caLoginApi,
         {      
           email:data.Email,
           password:data.password

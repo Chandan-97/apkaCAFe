@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useForm } from "react-hook-form";
 // import AuthUser from '../authUser/AuthUser';
 import { useNavigate } from "react-router";
+import { customerLoginApi } from '../components/ApiRouter.js';
 
 export default function Customerlogin() { 
   // const {http,setToken} = AuthUser();
@@ -15,7 +16,7 @@ export default function Customerlogin() {
   const onSubmit = (data)=>{
     try { 
      
-      axios.post('http://13.234.30.172:8000/accounts/user/login',
+      axios.post(customerLoginApi,
         {      
           email:data.Email,
           password:data.password

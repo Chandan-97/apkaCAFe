@@ -9,6 +9,7 @@ import Header from '../header/header';
 import Banner from '../banner/banner';
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router";
+import { CaSignupapi, location } from '../components/ApiRouter.js';
 
 
 function CaSignup() {
@@ -25,7 +26,7 @@ function CaSignup() {
     console.log("Email 16 line",data.Email);
 
     if(data.password === data.confirmPassword){
-    axios.post('http://13.234.30.172:8000/accounts/ca/register',
+    axios.post(CaSignupapi,
       {      
         full_name: data.firstName,
         phone_no: data.mobileNumber,
@@ -64,7 +65,7 @@ function CaSignup() {
   };
 
   useEffect(()=>{
-    fetch("http://13.234.30.172:8000/location/list").then((data)=>data.json()).then((val)=>setValues(val))
+    fetch(location).then((data)=>data.json()).then((val)=>setValues(val))
   },[])
   return (
     <div>

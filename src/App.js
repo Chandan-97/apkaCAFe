@@ -5,6 +5,7 @@ import Customerlogin from "./components/customer_login/CustomerLogin"
 import Home from "./components/home/home";
 import CustomerSignup from './components/customer_login/CustomerSignup';
 import CaSignup from './components/ca_login/CaSignup';
+import ServiceCard from './components/service/ServiceCard';
 export default function App() {
   return (
     <BrowserRouter>
@@ -19,6 +20,9 @@ export default function App() {
         </Route>
         <Route path="/casignup" element={<CaSignup/>}>        
         </Route>
+        <Route path="/servicecard" element={<ServiceCard/>}>        
+        </Route>
+        
       </Routes>
     </BrowserRouter>
   );

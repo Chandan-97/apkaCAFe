@@ -8,6 +8,7 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router";
+import { customerSignupApi,location } from '../components/ApiRouter.js';
 
 function CustomerSignup() {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -20,7 +21,7 @@ const { register, handleSubmit, formState: { errors } } = useForm();
 const onSubmit = (data) => {
   try { 
     if(data.password === data.confirmPassword){
-    axios.post('http://13.234.30.172:8000/accounts/user/register',
+    axios.post(customerSignupApi,
       {      
         full_name:data.firstName,
         phone_no:data.mobileNumber,
@@ -46,7 +47,7 @@ const onSubmit = (data) => {
 }
 
 useEffect(()=>{
-  fetch("http://13.234.30.172:8000/location/list").then((data)=>data.json()).then((val)=>setValues(val))
+  fetch(location).then((data)=>data.json()).then((val)=>setValues(val))
 },[])
 
 

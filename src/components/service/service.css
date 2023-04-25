@@ -1,0 +1,19 @@
+.avd {
+    background-color: #fffafb;
+    margin: 1%;
+    height: 250px;
+}
+
+li {
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.avd:hover {
+    transform: scale(1.1);
+}
+
+.margin21 { 
+    align-items: center;
+    text-align: center;
+}

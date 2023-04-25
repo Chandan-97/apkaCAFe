@@ -1,0 +1,5 @@
+export const CaSignupapi = "http://13.234.30.172:8000/accounts/ca/register"
+export const location = "http://13.234.30.172:8000/location/list"
+export const caLoginApi = "http://13.234.30.172:8000/accounts/ca/login"
+export const customerLoginApi = "http://13.234.30.172:8000/accounts/user/login"
+export const customerSignupApi = "http://13.234.30.172:8000/accounts/user/register"
