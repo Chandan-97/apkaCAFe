@@ -310,5 +310,8 @@ body {
       transform: scale(1.2);
       fill: var(--fill);
     }
+  }  
+
+  .tabcontent {
+    display: none;   
   }
-  

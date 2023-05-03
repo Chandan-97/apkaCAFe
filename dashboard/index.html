@@ -19,16 +19,16 @@
                 <span class='Header-logo'>aapkCA</span>            
             </div>
             <div class='Header-menu my-2'>
-                <a class='Header-menu-item badge-danger' href="#leads">Leads</a>
-                <a class='Header-menu-item badge-danger' href="#services">Services</a>
-                <a class='Header-menu-item badge-danger' href="#profile">Profile</a>            
+                <button class='Header-menu-item badge-danger' onclick="openTab(event, 'Leads')">Leads</button>
+                <button class='Header-menu-item badge-danger' onclick="openTab(event, 'Services')">Services</button>
+                <button class='Header-menu-item badge-danger' onclick="openTab(event, 'Profile')">Profile</button>            
             </div>        
     </div>
           <!-- Optional JavaScript -->
           
           <!-- leads --> 
           
-    <div class="container mt-5" id="leads">
+    <div class="container mt-5 tabcontent" id="Leads">
       <div class="row">
           <div class="col-md-12 col-xl-12 col-lg-12 col-sm-12">
               <table class="table">
@@ -277,12 +277,11 @@
   </div>
   <!-- end leads -->
 
-  <!-- start services -->
-  
-  <div class="container bg-danger mt-5" id="services">
+  <!-- start services -->  
+  <div class="container bg-danger mt-5 tabcontent" id="Services">
     <div class="row">
         <div class="col-sm-12 col-md-4 col-xl-4 col-lg-4 my-2">
-            <div class="card mt-3" style="width: 18rem;">                
+            <div class="card mt-5" style="width: 18rem;">                
                 <div class="card-body">
                   <h5 class="card-title text-center text-danger">Card title</h5>
                   <ul class="list-group">
@@ -304,80 +303,7 @@
         </div>  
 
         <div class="col-sm-12 col-md-4 col-xl-4 col-lg-4 my-2">
-            <div class="card mt-3" style="width: 18rem;">                
-                <div class="card-body">
-                  <h5 class="card-title text-center text-danger">Card title</h5>
-                  <ul class="list-group">
-                    <li class="list-service">&#9989; Cras justo odio</li>
-                    <li class="list-service">&#9989; Dapibus ac facilisis in</li>
-                    <li class="list-service">&#9989; Morbi leo risus</li>
-                    <li class="list-service">&#9989; Porta ac consectetur ac</li>
-                    <li class="list-service">&#9989; Vestibulum at eros</li>                    
-                  </ul>
-                  <div class="input-group mb-3">
-                      <!-- <span class="badge badge-danger">Price</span> -->
-                    <div class="input-group-prepend">
-                        <button type="button" class="btn btn-danger">Price</button>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                  </div>
-                </div>
-            </div>
-        </div>  
-
-
-        <div class="col-sm-12 col-md-4 col-xl-4 col-lg-4 my-2">
-            <div class="card mt-3" style="width: 18rem;">                
-                <div class="card-body">
-                  <h5 class="card-title text-center text-danger">Card title</h5>
-                  <ul class="list-group">
-                    <li class="list-service">&#9989; Cras justo odio</li>
-                    <li class="list-service">&#9989; Dapibus ac facilisis in</li>
-                    <li class="list-service">&#9989; Morbi leo risus</li>
-                    <li class="list-service">&#9989; Porta ac consectetur ac</li>
-                    <li class="list-service">&#9989; Vestibulum at eros</li>                    
-                  </ul>
-                  <div class="input-group mb-3">
-                      <!-- <span class="badge badge-danger">Price</span> -->
-                    <div class="input-group-prepend">
-                        <button type="button" class="btn btn-danger">Price</button>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                  </div>
-                </div>
-            </div>
-        </div>  
-
-      </div>
-    </div>     
-       
-
-    <div class="container bg-danger">
-      <div class="row">
-        <div class="col-sm-12 col-md-4 col-xl-4 col-lg-4 my-2">
-            <div class="card mt-3" style="width: 18rem;">                
-                <div class="card-body">
-                  <h5 class="card-title text-center text-danger">Card title</h5>
-                  <ul class="list-group">
-                    <li class="list-service">&#9989; Cras justo odio</li>
-                    <li class="list-service">&#9989; Dapibus ac facilisis in</li>
-                    <li class="list-service">&#9989; Morbi leo risus</li>
-                    <li class="list-service">&#9989; Porta ac consectetur ac</li>
-                    <li class="list-service">&#9989; Vestibulum at eros</li>                    
-                  </ul>
-                  <div class="input-group mb-3">
-                      <!-- <span class="badge badge-danger">Price</span> -->
-                    <div class="input-group-prepend">
-                        <button type="button" class="btn btn-danger">Price</button>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                  </div>
-                </div>
-            </div>
-        </div>  
-
-        <div class="col-sm-12 col-md-4 col-xl-4 col-lg-4 my-2">
-            <div class="card mt-3" style="width: 18rem;">                
+            <div class="card mt-5" style="width: 18rem;">                
                 <div class="card-body">
                   <h5 class="card-title text-center text-danger">Card title</h5>
                   <ul class="list-group">
@@ -400,7 +326,7 @@
 
 
         <div class="col-sm-12 col-md-4 col-xl-4 col-lg-4 my-2">
-            <div class="card mt-3" style="width: 18rem;">                
+            <div class="card mt-5" style="width: 18rem;">                
                 <div class="card-body">
                   <h5 class="card-title text-center text-danger">Card title</h5>
                   <ul class="list-group">
@@ -419,147 +345,81 @@
                   </div>
                 </div>
             </div>
-        </div>  
-
-        </div>
-      </div>     
-
-
-      <div class="container bg-danger">
-        <div class="row">
-            <div class="col-sm-12 col-md-4 col-xl-4 col-lg-4 my-2">
-                <div class="card mt-3" style="width: 18rem;">                
-                    <div class="card-body">
-                      <h5 class="card-title text-center text-danger">Card title</h5>
-                      <ul class="list-group">
-                        <li class="list-service">&#9989; Cras justo odio</li>
-                        <li class="list-service">&#9989; Dapibus ac facilisis in</li>
-                        <li class="list-service">&#9989; Morbi leo risus</li>
-                        <li class="list-service">&#9989; Porta ac consectetur ac</li>
-                        <li class="list-service">&#9989; Vestibulum at eros</li>                    
-                      </ul>
-                      <div class="input-group mb-3">
-                          <!-- <span class="badge badge-danger">Price</span> -->
-                        <div class="input-group-prepend">
-                            <button type="button" class="btn btn-danger">Price</button>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                      </div>
-                    </div>
-                </div>
-            </div>  
-            <div class="col-sm-12 col-md-4 col-xl-4 col-lg-4 my-2">
-                <div class="card mt-3" style="width: 18rem;">                
-                    <div class="card-body">
-                      <h5 class="card-title text-center text-danger">Card title</h5>
-                      <ul class="list-group">
-                        <li class="list-service">&#9989; Cras justo odio</li>
-                        <li class="list-service">&#9989; Dapibus ac facilisis in</li>
-                        <li class="list-service">&#9989; Morbi leo risus</li>
-                        <li class="list-service">&#9989; Porta ac consectetur ac</li>
-                        <li class="list-service">&#9989; Vestibulum at eros</li>                    
-                      </ul>
-                      <div class="input-group mb-3">
-                          <!-- <span class="badge badge-danger">Price</span> -->
-                        <div class="input-group-prepend">
-                            <button type="button" class="btn btn-danger">Price</button>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                      </div>
-                    </div>
-                </div>
-            </div>  
-
-            <div class="col-sm-12 col-md-4 col-xl-4 col-lg-4 my-2">
-                <div class="card mt-3" style="width: 18rem;">                
-                    <div class="card-body">
-                      <h5 class="card-title text-center text-danger">Card title</h5>
-                      <ul class="list-group">
-                        <li class="list-service">&#9989; Cras justo odio</li>
-                        <li class="list-service">&#9989; Dapibus ac facilisis in</li>
-                        <li class="list-service">&#9989; Morbi leo risus</li>
-                        <li class="list-service">&#9989; Porta ac consectetur ac</li>
-                        <li class="list-service">&#9989; Vestibulum at eros</li>                    
-                      </ul>
-                      <div class="input-group mb-3">
-                          <!-- <span class="badge badge-danger">Price</span> -->
-                        <div class="input-group-prepend">
-                            <button type="button" class="btn btn-danger">Price</button>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                      </div>
-                    </div>
-                </div>
-            </div>  
-
-          </div>
-        </div>     
-     <!-- end services    -->
-
-     <!-- start profile  -->
-     <div class="container  mt-5" id="profile">
-      <div class="row form-bg">
-        <div class="col-md-offset-12 col-md-12 col-sm-offset-12 col-sm-12">
-          <div class="form-container">
-            <h2 class="title">CA SIGNUP FORM</h2>
-            <form class="form-horizontal">
-              <div class="form-group">
-                <label class="formlabel">Enter the Fullname.</label>
-                <input type="text" class="form-control">
-              </div>
-              <div class="form-group">
-                <label class="formlabel">Enter the Mobile Number.</label>
-                <input type="text" class="form-control">
-              </div>
-              <div class="form-group">
-                <label class="formlabel">Enter the Email id.</label>
-                <input type="text" class="form-control">
-              </div>
-              <div class="form-group">
-                <label class="formlabel">Enter the Location Preference.</label>
-                <input type="text" class="form-control">
-              </div>
-              <div class="form-group">
-                <label class="formlabel">Enter the office Address.</label>
-                <input type="text" class="form-control">
-              </div>
-              <div class="form-group">
-                <label class="formlabel">Enter the years of Experience</label>
-                <input type="text" class="form-control">
-              </div>
-
-              <div class="form-group">
-                <label class="formlabel">upload degree</label>
-                <input type="file" class="form-control">
-              </div>
-
-              <div class="form-group">
-                <label class="formlabel">Enter the CA passed Years</label>
-                <input type="text" class="form-control">
-              </div>
-              <div class="form-group">
-                <label class="formlabel">Enter the working year</label>
-                <input type="text" class="form-control">
-              </div>
-
-              <div class="form-group">
-                <label class="formlabel">Enter the Password</label>
-                <input type="password" class="form-control">
-              </div>
-
-              <div class="form-group">
-               <label class="formlabel">Enter the confirm Password</label>
-                <input type="password" class="form-control">
-              </div>              
-              <button class="btn bg-light px-5 mb-5 w-100">Submit</button>
-            </form>
-          </div>
-        </div>
-      </div>
+        </div> 
     </div>
+  </div>  
+  
+  <!-- profile start -->
+<div class="container  mt-5 tabcontent" id="Profile">
+    <div class="row form-bg">
+      <div class="col-md-offset-12 col-md-12 col-sm-offset-12 col-sm-12">
+        <div class="form-container">
+          <h2 class="title">CA SIGNUP FORM</h2>
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="formlabel">Enter the Fullname.</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label class="formlabel">Enter the Mobile Number.</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label class="formlabel">Enter the Email id.</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label class="formlabel">Enter the Location Preference.</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label class="formlabel">Enter the office Address.</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label class="formlabel">Enter the years of Experience</label>
+              <input type="text" class="form-control">
+            </div>
 
-     <!-- end profile -->
+            <div class="form-group">
+              <label class="formlabel">upload degree</label>
+              <input type="file" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label class="formlabel">Enter the CA passed Years</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label class="formlabel">Enter the working year</label>
+              <input type="text" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label class="formlabel">Enter the Password</label>
+              <input type="password" class="form-control">
+            </div>
+
+            <div class="form-group">
+             <label class="formlabel">Enter the confirm Password</label>
+              <input type="password" class="form-control">
+            </div>              
+            <button class="btn bg-light px-5 mb-5 w-100">Submit</button>
+          </form>
+            </div>
+          </div>
+      </div>
+  </div>
+
+     
+
+ 
+
+    
           
+    <script src="./dashboard.js">
+        
+    </script>
           
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
