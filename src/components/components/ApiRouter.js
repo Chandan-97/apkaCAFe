@@ -1,0 +1,6 @@
+export const CaSignupapi = "http://43.204.96.169:8000/accounts/ca/register"
+export const location = "http://43.204.96.169:8000/location/list"
+export const caLoginApi = "http://43.204.96.169:8000/accounts/ca/login"
+export const customerLoginApi = "http://43.204.96.169:8000/accounts/user/login"
+export const customerSignupApi = "http://43.204.96.169:8000/accounts/user/register"
+export const serviceApi = "http://43.204.96.169:8000/caservice/all"
