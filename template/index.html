@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+ <div class='Home-Main'>
+        <div>
+            <a class='Header-logo' href="#">aapkaCA</a>
+       
+               <span class='Header-button right dropdown login-signup'>
+                    <button class="dropdown">Welcome</button>
+                    <div class="dropdown-content">
+                   <a href="#">Logout</a>
+                    </div>
+                </span>
+            {% else %}
+                <span class='Header-button right dropdown login-signup'>
+                    <button class="dropdown">Login / Signup</button>
+                    <div class="dropdown-content">
+                   <a href="#">CA</a>
+                   <a href="#">Customer</a>
+                   <a href="./search.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="iconsize"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg> Search</a>
+
+                    </div>
+                </span>
+            {% endif %}
+        </div>
+        <div class='Header-menu'>
+            <span class='Header-menu-item'>Home</span>
+            <span class='Header-menu-item'>About Us</span>
+            <span class='Header-menu-item'>CA Blogs</span>
+            <span class='Header-menu-item'>Trace CA Member</span>
+            <span class='Header-menu-item'>Need Help?</span>
+        </div>
+        <div class='Header-menu'>
+            <span class='Header-menu-item'>Search CA by location</span>
+            <span class='Header-menu-item'>Search CA by business need</span>
+            <span class='Header-menu-item'>Search CA by business stage</span>
+            <span class='Header-menu-item'>Search CA by business domain</span>
+        </div>
+        <div class='MT-16'></div>
+    </div>
+    <div class='MT-16' ></div>
+<!--  Header Ends -->
+
+<!--  Banner Starts-->
+
+        <div class='Banner-container'>
+            <div class='Banner-title Banner-color-red-white'>
+                <div class='Banner-center-align'>
+                    <span>India's Largest CA Professionals Network which helps to solve all your business needs related to finance and accounts quickly.</span>
+                </div>
+            </div>
+            <div class='Banner-list'>
+                <span class='Banner-list-item'>1000+CAs present on our platform</span>
+                <span class='Banner-list-item'>3000+ Happy Customers</span>
+                <span class='Banner-list-item'>30+ Business Services Available</span>
+            </div>
+            <div class='Banner-title Banner-color-red-white'>
+                <div class='Banner-center-align'>
+                    <span>Benefits for CAs on our platform -</span>
+                </div>
+                <br/>
+                <div class='Banner-title-list'>
+                    <div class='Banner-title-item'>Build your digital brand presence</div>
+                    <div class='Banner-title-item'>Get your micro website, share it with your prospects, and do conversions</div>
+                    <div class='Banner-title-item'>Write blogs and generate leads from them </div>
+                </div>
+            </div>
+            <div class='Banner-title Banner-color-white-red'>
+                <div class='Banner-center-align'>
+                    <span>Benefits for Users on our platform -</span>
+                </div>
+                <br/>
+                <div class='Banner-title-list'>
+                    <div class='Banner-title-item'>Search CAs according to your business stages such as Introduction, Growth, and Maturity</div>
+                    <div class='Banner-title-item'>Search CAs according to your business domain such as Manufacturing, Wholesale, Retail, Export/Import, and many more</div>
+                    <div class='Banner-title-item'>Whether you are a Startup/MSME, we have CAs according to your business need</div>
+                    <div class='Banner-title-item'>Whether you are looking to start business or want to grow business, we have CAs according to your business need</div>
+                    <div class='Banner-title-item'>Search CAs according to your business stages such as Introduction, Growth, and Maturity</div>
+                </div>
+            </div>
+        </div>
+
+
+<!--  Banner Ends-->
+
+<!-- Footer Starts-->
+        <div class='Footer-title Footer-color-red-white'>
+            <div class='Footer-heading'>Follow us on</div>
+<!--            {/* <div className='Footer-logo-list'>-->
+<!--                <a className='Footer-logo-list-item'><TwitterIcon fontSize='large'/></a>-->
+<!--                <a className='Footer-logo-list-item'><InstagramIcon fontSize='large'/></a>-->
+<!--                <a className='Footer-logo-list-item'><FacebookIcon fontSize='large'/></a>-->
+<!--                <a className='Footer-logo-list-item'><LinkedInIcon fontSize='large'/></a>-->
+<!--                <a className='Footer-logo-list-item'><YouTubeIcon fontSize='large'/></a>-->
+<!--            </div> */}-->
+            <div class='Footer-row-list'>
+                <span>About Us</span>
+                <span>Contact Us</span>
+                <span>Terms and Conditions</span>
+                <span>Privacy Policy</span>
+            </div>
+        </div>
+<!-- Footer Ends-->
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
